@@ -262,7 +262,7 @@ function FloatingInput ({
   errorTextClassName,
   ...props
 }: FloatingInputProps) {
-  const [inputValue, setInputValue] = useState('')
+  const [inputValue, setInputValue] = useState(props?.value ?? '')
   const [isFocused, setIsFocused] = useState(false)
   const [passwordVisible, setPasswordVisible] = useState(false)
   const [labelWidth, setLabelWidth] = useState<number>(100)
@@ -279,7 +279,7 @@ function FloatingInput ({
     onChange?.(e)
   }
 
-  const hasValue = inputValue.trim() !== ''
+  const hasValue = inputValue !== ''
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible)
