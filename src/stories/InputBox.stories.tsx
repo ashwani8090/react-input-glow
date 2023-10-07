@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react'
-import { InputBox } from '../InputBox'
+import InputBox from '../InputBox'
 import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -8,9 +8,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const meta = {
   title: 'InputBox',
   component: InputBox,
+
   parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
-    layout: 'centered'
+    layout: 'centered',
+    docs: {
+      source: {
+        code: 
+      `import React from 'react';
+import InputBox from 'react-input-glow';
+        
+const MyForm = () => {
+  return (<>
+    <InputBox name="name" label="Name" />
+    <InputBox name="email" label="Email" />
+      </>
+    );
+}
+                `,
+      },
+    },
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ['autodocs'],
@@ -20,6 +36,7 @@ const meta = {
 
 export default meta
 type Story = StoryObj<typeof meta>
+
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const InputBoxFixed: Story = {
@@ -152,8 +169,8 @@ export const InputBoxLeftIcon: Story = {
     label: 'Username',
     labelPosition: 'outside',
     width: '300px',
-    icon: <FontAwesomeIcon icon={faLock}  color='gray' />,
-    iconPosition:'left'
+    icon: <FontAwesomeIcon icon={faLock} color='gray' />,
+    iconPosition: 'left'
   }
 }
 
@@ -164,8 +181,8 @@ export const InputBoxInlineLeftIcon: Story = {
     label: 'Username',
     labelPosition: 'inline',
     width: '300px',
-    icon: <FontAwesomeIcon icon={faLock}  color='gray' />,
-    iconPosition:'left'
+    icon: <FontAwesomeIcon icon={faLock} color='gray' />,
+    iconPosition: 'left'
   }
 }
 
@@ -177,7 +194,7 @@ export const InputBoxInsideLeftIcon: Story = {
     labelPosition: 'inside',
     width: '300px',
     icon: <FontAwesomeIcon icon={faLock} color='gray' />,
-    iconPosition:'left'
+    iconPosition: 'left'
   }
 }
 
@@ -189,7 +206,7 @@ export const InputBoxNotFloatingLeftIcon: Story = {
     labelPosition: 'inside',
     width: '300px',
     icon: <FontAwesomeIcon icon={faLock} color='gray' />,
-    iconPosition:'left',
+    iconPosition: 'left',
     isFloating: false,
   }
 }
@@ -204,7 +221,7 @@ export const InputBoxTextColor: Story = {
     labelPosition: 'inside',
     width: '300px',
     icon: <FontAwesomeIcon icon={faLock} color='gray' />,
-    iconPosition:'left',
+    iconPosition: 'left',
     isFloating: false,
     textColor: '#16e8ef',
   }
@@ -216,7 +233,7 @@ export const FloatingLabelDarkBackground: Story = {
     name: 'user',
     label: 'Username',
     labelPosition: 'inline',
-    labelBackground:'#3a2f2f'
+    labelBackground: '#3a2f2f'
   }
 }
 
