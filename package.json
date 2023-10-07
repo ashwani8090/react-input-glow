@@ -1,6 +1,6 @@
 {
   "name": "react-input-glow",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "reusable input box ",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -15,6 +15,19 @@
   },
   "author": "ashwani",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ashwani8090/react-input-glow"
+  },
+  "keywords": [
+    "react",
+    "react-input",
+    "floating",
+    "styled component"
+  ],
+  "bugs": {
+    "url": "https://github.com/ashwani8090/react-input-glow/issues"
+  },
   "devDependencies": {
     "@babel/core": "^7.23.0",
     "@babel/preset-env": "^7.22.20",
