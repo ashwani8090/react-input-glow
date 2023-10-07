@@ -3,7 +3,6 @@ import { type InputHTMLAttributes } from 'react'
 export interface FloatingInputProps
   extends InputHTMLAttributes<HTMLInputElement> {
   name: string
-  validate?: (value: string) => boolean
   label?: string
   placeholder?: string
   onChange?: (value: string | any) => void
@@ -18,7 +17,7 @@ export interface FloatingInputProps
   borderColor?: string
   borderWidth?: string
   iconPosition?: 'left' | 'right'
-  icon?: any
+  icon?: React.ReactNode | any
   required?: boolean
   isFloating?: boolean
   disabled?: boolean
