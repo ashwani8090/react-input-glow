@@ -9,3 +9,9 @@ storybook-static/
 
 # Ignore the src directory
 src/
+
+# Exclude development and configuration files
+tsconfig.json
+rollup.config.js
+yarn.lock
+.gitignore
