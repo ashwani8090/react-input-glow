@@ -26,7 +26,7 @@ export const InputBoxFixed: Story = {
   args: {
     name: 'Label',
     label: 'Email',
-    isFloating: false
+    isFloating: false,
   }
 }
 

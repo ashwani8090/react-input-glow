@@ -9,7 +9,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c --bundleConfigAsCjs",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prod:storybook": "serve ./storybook-static/",
+    "deploy-storybook": "build-storybook && firebase deploy"
   },
   "author": "ashwani",
   "license": "ISC",
@@ -44,5 +46,8 @@
     "storybook": "^7.4.6",
     "styled-components": "^6.0.8",
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "rollup-plugin-postcss": "^4.0.2"
   }
 }
