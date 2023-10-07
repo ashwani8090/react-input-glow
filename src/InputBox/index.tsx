@@ -275,7 +275,7 @@ function FloatingInput ({
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value
     setInputValue(newValue)
-    onChange?.(newValue)
+    onChange?.(e)
   }
 
   const hasValue = inputValue.trim() !== ''

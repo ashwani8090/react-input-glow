@@ -5,7 +5,6 @@ export interface FloatingInputProps
   name: string
   label?: string
   placeholder?: string
-  onChange?: (value: string | any) => void
   type?: string
   className?: string
   inputClassName?: string
