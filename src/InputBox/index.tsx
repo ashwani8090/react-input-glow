@@ -2,10 +2,9 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
-import '@fortawesome/fontawesome-svg-core/styles.css'
+import EyeOpen from './eye-open'
+import EyeClose from './eye-close'
 
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { type FloatingInputProps } from './InputBox.types'
 
 const InputContainer = styled.div<{ width?: string }>`
@@ -331,10 +330,10 @@ function FloatingInput ({
         <IconContainer iconPosition="right" onClick={togglePasswordVisibility} errorText={errorText} >
           {passwordVisible
             ? (
-              <FontAwesomeIcon icon={faEyeSlash} />
+              <EyeClose />
               )
             : (
-              <FontAwesomeIcon icon={faEye} />
+              <EyeOpen />
               )}
         </IconContainer>
       )}
