@@ -1,6 +1,6 @@
-# React Floating Input Component
+# React Input Glow Component
 
-The React Floating Input Component provides a flexible and customizable input field with floating labels. It is designed to be easy to use and highly configurable.
+The React Input Glow Component provides a flexible and customizable input field with floating labels. It is designed to be easy to use and highly configurable.
 
 ## Installation
 
@@ -18,7 +18,7 @@ yarn add react-input-glow
 
 ## Usage
 
-To use the React Floating Input Component, you should import the `FloatingInputProps` interface from 'react' and use it to define the props for your input field. Here's an example of how to use it:
+To use the React Input Glow Component, you should import the `FloatingInputProps` interface from 'react' and use it to define the props for your input field. Here's an example of how to use it:
 
 ```jsx
 import React from 'react';
@@ -50,4 +50,4 @@ export default MyForm;
 
 In this example, we import the `FloatingInputProps` interface and use it to define the props for our input field. We can customize various aspects of the input field, such as the label, placeholder, and event handlers.
 
-Feel free to explore the available props in the `FloatingInputProps` interface and adjust them to fit your specific use case. The React Floating Input Component is highly customizable and can be integrated into your forms with ease.
+Feel free to explore the available props in the `FloatingInputProps` interface and adjust them to fit your specific use case. The React Input Glow Component is highly customizable and can be integrated into your forms with ease.
