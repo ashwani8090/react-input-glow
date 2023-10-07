@@ -170,7 +170,6 @@ const Legend = styled.div<{
 
 function FloatingInput ({
   name,
-  validate,
   label,
   placeholder,
   onChange,

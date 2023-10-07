@@ -1,10 +1,10 @@
 {
   "name": "react-input-glow",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "reusable input box ",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/esm/types/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c --bundleConfigAsCjs",
