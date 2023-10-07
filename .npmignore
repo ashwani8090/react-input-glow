@@ -1,0 +1,11 @@
+# Ignore Firebase deploy files
+firebase.json
+.firebaserc
+.firebase/
+
+# Ignore Storybook files
+.storybook/
+storybook-static/
+
+# Ignore the src directory
+src/

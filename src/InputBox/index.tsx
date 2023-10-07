@@ -28,6 +28,8 @@ const Input = styled.input<{
   disabled?: boolean
   textColor?: string
   primaryColor?: string
+  errorTextColor?: string
+  errorText?: string
 }>`
   background-color: transparent;
   height: ${({ height }) => height ?? '2.5rem'};
@@ -58,11 +60,22 @@ const Input = styled.input<{
       cursor: not-allowed;
       border-color: rgb(0 0 0 / 7%);
     `}
+
+
   ${({ className }) =>
     className &&
     css`
       ${className}
     `}
+
+    ${({ errorTextColor, errorText }) => {
+    if (errorText) {
+      return css`
+          border-color: ${errorTextColor ?? 'red'};
+          border-width: 0.1rem;
+        `
+    }
+  }};
 `
 
 export const Label = styled.label<{
@@ -79,6 +92,8 @@ export const Label = styled.label<{
   isFloating?: boolean
   primaryColor?: string
   secondaryColor?: string
+  errorTextColor?: string
+  errorText?: string
 }>`
   position: absolute;
   font-size: ${({ hasValue, isFocused, isFloating }) =>
@@ -90,21 +105,15 @@ export const Label = styled.label<{
   background-color: transparent;
   padding: 0 4px;
   transition:
-    top 0.2s,
-    font-size 0.2s,
-    left 0.2s;
-
-  ${({ className }) =>
-    className &&
-    css`
-      ${className}
-    `};
+  top 0.2s,
+  font-size 0.2s,
+  left 0.2s;
 
   ${({ hasValue, isFocused, labelPosition, isFloating, iconPosition }) => {
     const isNotFloating = !isFloating
 
     if (isNotFloating) {
-        return css`
+      return css`
           top: -20px;
           left: 0px;
         `
@@ -134,12 +143,53 @@ export const Label = styled.label<{
       `
     }
   }};
+
+
+  ${({ errorTextColor, errorText, isFloating, isFocused, hasValue, labelPosition }) => {
+    if (errorText) {
+      if (isFloating) {
+        if (hasValue || isFocused) {
+          if (labelPosition === 'inline') {
+            return css`
+             color: ${errorTextColor ?? 'red'};
+             top: -8px;
+        `
+          } else if (labelPosition === 'inside') {
+            return css`
+         color: ${errorTextColor ?? 'red'};
+             top: 3px;
+        `
+          } else {
+            return css`
+             color: ${errorTextColor ?? 'red'};
+             top: -20px;
+        `
+          }
+        } else {
+          return css`
+         color: ${errorTextColor ?? 'red'};
+        top: 25%;
+        `
+        }
+      } else {
+        return css`
+         color: ${errorTextColor ?? 'red'};
+        `
+      }
+    }
+  }};
+
+  ${({ className }) =>
+    className &&
+    css`
+      ${className}
+    `};
 `
 
-const IconContainer = styled.div<{ iconPosition?: 'left' | 'right' }>`
+const IconContainer = styled.div<{ iconPosition?: 'left' | 'right', errorText?: string }>`
   position: absolute;
-  top: 50%;
   transform: translateY(-50%);
+  top: ${({ errorText }) => errorText ? '40%' : '50%'};
   ${({ iconPosition }) =>
     iconPosition === 'right'
       ? css`
@@ -168,6 +218,19 @@ const Legend = styled.div<{
   height: 1px;
 `
 
+const ErrorText = styled.div<{ errorTextColor?: string }>`
+  color: ${({ errorTextColor }) => errorTextColor ?? 'red'};
+  font-size: 0.75rem;
+  margin-top: 4px;
+
+
+  ${({ className }) =>
+    className &&
+    css`
+      ${className}
+    `};
+`
+
 function FloatingInput ({
   name,
   label,
@@ -192,6 +255,10 @@ function FloatingInput ({
   textColor,
   primaryColor = 'black',
   secondaryColor = 'gray',
+  errorText,
+  errorTextColor,
+  errorLabelTextColor,
+  errorTextClassName,
   ...props
 }: FloatingInputProps) {
   const [inputValue, setInputValue] = useState('')
@@ -255,17 +322,19 @@ function FloatingInput ({
         disabled={disabled}
         textColor={textColor}
         primaryColor={primaryColor}
+        errorTextColor={errorTextColor}
+        errorText={errorText}
         {...props}
       />
       {!!(type === 'password' && icon) && !disabled && (
-        <IconContainer iconPosition="right" onClick={togglePasswordVisibility}>
-           {passwordVisible
-             ? (
-            <FontAwesomeIcon icon={faEyeSlash} />
-               )
-             : (
-            <FontAwesomeIcon icon={faEye} />
-               )}
+        <IconContainer iconPosition="right" onClick={togglePasswordVisibility} errorText={errorText} >
+          {passwordVisible
+            ? (
+              <FontAwesomeIcon icon={faEyeSlash} />
+              )
+            : (
+              <FontAwesomeIcon icon={faEye} />
+              )}
         </IconContainer>
       )}
       {isFloating && labelPosition === 'inline' && (isFocused || hasValue) && (
@@ -287,10 +356,15 @@ function FloatingInput ({
           isFloating={isFloating}
           primaryColor={primaryColor}
           secondaryColor={secondaryColor}
+          errorText={errorText}
+          errorTextColor={errorLabelTextColor ?? errorTextColor}
         >
           {label}
           {required && <Asterisk isFocused={isFocused}>*</Asterisk>}
         </Label>
+      )}
+      {errorText && (
+        <ErrorText errorTextColor={errorTextColor} className={errorTextClassName}>{errorText}</ErrorText>
       )}
       {icon && iconPosition === 'right' && (
         <IconContainer iconPosition="right">{icon}</IconContainer>

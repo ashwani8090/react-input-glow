@@ -13,8 +13,8 @@ const meta = {
     layout: 'centered',
     docs: {
       source: {
-        code: 
-      `import React from 'react';
+        code:
+          `import React from 'react';
 import InputBox from 'react-input-glow';
         
 const MyForm = () => {
@@ -245,5 +245,48 @@ export const InputBoxPlaceholder: Story = {
     width: '300px',
     isFloating: false,
     placeholder: "Enter Username name",
+  }
+}
+
+
+export const InputBoxOutsideError: Story = {
+  args: {
+    name: 'user',
+    label: 'Username',
+    labelPosition: 'outside',
+    isFloating: true,
+    errorText: 'Error Text',
+  }
+}
+
+export const InputBoxInlineError: Story = {
+  args: {
+    name: 'user',
+    label: 'Username',
+    labelPosition: 'inline',
+    isFloating: true,
+    errorText: 'Error Text',
+  }
+}
+
+export const InputBoxInsideError: Story = {
+  args: {
+    name: 'user',
+    label: 'Username',
+    labelPosition: 'inside',
+    isFloating: true,
+    errorText: 'Error Text',
+    type:"password"
+  }
+}
+
+export const InputBoxErrorLabelColor: Story = {
+  args: {
+    name: 'user',
+    label: 'Username',
+    labelPosition: 'outside',
+    isFloating: true,
+    errorText: 'Error Text',
+    errorLabelTextColor: '#191717'
   }
 }

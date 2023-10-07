@@ -25,4 +25,8 @@ export interface FloatingInputProps
   textColor?: string
   primaryColor?: string // Add primaryColor prop
   secondaryColor?: string // Add secondaryColor prop
+  errorText?: string // Add errorText prop
+  errorTextColor?: string // Add errorTextColor prop
+  errorTextClassName?: string
+  errorLabelTextColor?: string
 }
