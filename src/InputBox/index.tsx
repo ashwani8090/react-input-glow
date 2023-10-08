@@ -259,6 +259,8 @@ function FloatingInput ({
   errorTextColor,
   errorLabelTextColor,
   errorTextClassName,
+  toggleOffIcon,
+  toggleOnIcon,
   ...props
 }: FloatingInputProps) {
   const [inputValue, setInputValue] = useState(props?.value ?? '')
@@ -330,10 +332,10 @@ function FloatingInput ({
         <IconContainer iconPosition="right" onClick={togglePasswordVisibility} errorText={errorText} >
           {passwordVisible
             ? (
-              <EyeClose />
+                toggleOffIcon ?? <EyeClose />
               )
             : (
-              <EyeOpen />
+                toggleOnIcon ?? <EyeOpen />
               )}
         </IconContainer>
       )}

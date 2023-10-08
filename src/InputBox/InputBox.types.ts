@@ -1,3 +1,4 @@
+import type React from 'react'
 import { type InputHTMLAttributes } from 'react'
 
 export interface FloatingInputProps
@@ -28,4 +29,6 @@ export interface FloatingInputProps
   errorTextColor?: string // Add errorTextColor prop
   errorTextClassName?: string
   errorLabelTextColor?: string
+  toggleOffIcon?: React.ReactNode
+  toggleOnIcon?: React.ReactNode
 }

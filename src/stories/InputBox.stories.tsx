@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react'
 import InputBox from '../InputBox'
-import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faLock, faEye,faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -81,7 +81,7 @@ export const InputPassword: Story = {
     label: 'Password',
     labelPosition: 'outside',
     type: 'password',
-    icon: false
+    icon: false,
   }
 }
 
@@ -92,6 +92,19 @@ export const InputPasswordIcon: Story = {
     label: 'Password',
     labelPosition: 'outside',
     type: 'password'
+  }
+}
+
+
+// More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
+export const InputPasswordCustomIcon: Story = {
+  args: {
+    name: 'Label',
+    label: 'Password',
+    labelPosition: 'outside',
+    type: 'password',
+    toggleOffIcon: <FontAwesomeIcon icon={faEyeSlash} />,
+    toggleOnIcon: <FontAwesomeIcon icon={faEye} />
   }
 }
 
