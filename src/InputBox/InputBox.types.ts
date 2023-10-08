@@ -31,4 +31,5 @@ export interface FloatingInputProps
   errorLabelTextColor?: string
   toggleOffIcon?: React.ReactNode
   toggleOnIcon?: React.ReactNode
+  legendClassName: string
 }

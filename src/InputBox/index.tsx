@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useId } from 'react'
 import styled, { css } from 'styled-components'
 import EyeOpen from './eye-open'
 import EyeClose from './eye-close'
@@ -208,13 +208,20 @@ const Asterisk = styled.span<{ isFocused: boolean }>`
 const Legend = styled.div<{
   labelBackground?: string
   width?: number
+  height?: string
 }>`
   width: ${({ width }) => `${width ?? 70}px`};
   position: absolute;
   background: ${({ labelBackground }) => labelBackground ?? 'white'};
   top: 0px;
   left: 13px;
-  height: 1px;
+  height: ${({ height }) => `${height ?? '2px'}`};
+
+  ${({ className }) =>
+    className &&
+    css`
+      ${className}
+    `};
 `
 
 const ErrorText = styled.div<{ errorTextColor?: string }>`
@@ -261,8 +268,10 @@ function FloatingInput ({
   errorTextClassName,
   toggleOffIcon,
   toggleOnIcon,
+  legendClassName,
   ...props
 }: FloatingInputProps) {
+  const id = useId()
   const [inputValue, setInputValue] = useState(props?.value ?? '')
   const [isFocused, setIsFocused] = useState(false)
   const [passwordVisible, setPasswordVisible] = useState(false)
@@ -270,9 +279,9 @@ function FloatingInput ({
   let placeholderValue: string = label ?? ''
   useEffect(() => {
     setLabelWidth(
-      (document.getElementById(`label-${name}`)?.offsetWidth ?? 100) ?? 100
+      (document.getElementById(`label-${name}-${id}`)?.offsetWidth ?? 100) ?? 100
     )
-  }, [document.getElementById(`label-${name}`), name, label])
+  }, [document.getElementById(`label-${name}${id}`), name, label])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value
@@ -340,12 +349,12 @@ function FloatingInput ({
         </IconContainer>
       )}
       {isFloating && labelPosition === 'inline' && (isFocused || hasValue) && (
-        <Legend labelBackground={labelBackground} width={labelWidth} />
+        <Legend labelBackground={labelBackground} width={labelWidth} className={legendClassName} height={borderWidth} />
       )}
       {label && (
         <Label
           htmlFor={name}
-          id={`label-${name}`}
+          id={`label-${name}-${id}`}
           labelPosition={labelPosition}
           hasValue={hasValue}
           isFocused={isFocused}

@@ -82,6 +82,7 @@ Here's a table of available props for the `FloatingInputProps` interface, arrang
 | labelClassName     | string         | Additional CSS class for the label element.       |
 | labelPosition      | 'inline' \| 'outside' \| 'inside' | The position of the label. |
 | labelTextColor     | string         | The text color of the label.                |
+| labelClassName     | string         | Additional CSS class for the legend                |
 | name               | string         | The name attribute for the input field.           |
 | placeholder        | string         | The placeholder text for the input field.         |
 | primaryColor       | string         | The primary color of the input field.             |
