@@ -184,7 +184,7 @@ ${({ labelWidth, inputBoxWidth }) => {
     if (labelWidth > (inputBoxWidth / 2)) {
       return css`
               text-overflow: ellipsis;
-              max-width: ${inputBoxWidth / 2}px;
+              max-width: ${`${inputBoxWidth / 2}px`};
               overflow: hidden;
               white-space: nowrap;
 
@@ -292,28 +292,38 @@ function FloatingInput ({
   const [passwordVisible, setPasswordVisible] = useState(false)
   const [labelWidth, setLabelWidth] = useState<number>(100)
   const [inputBoxWidth, setInputBoxWidth] = useState<number>(100)
+  const [windowWidth, setWindowWidth] = useState<number>(0)
   const inputId = `${name}-${id}`
   let placeholderValue: string = label ?? ''
+  const hasValue = inputValue !== ''
+
+  const resizeWindow = () => {
+    setWindowWidth(window.innerWidth)
+  }
+
+  useEffect(() => {
+    resizeWindow()
+    window.addEventListener('resize', resizeWindow)
+    return () => { window.removeEventListener('resize', resizeWindow) }
+  }, [])
 
   useEffect(() => {
     setLabelWidth(
       (document.getElementById(`label-${name}-${id}`)?.offsetWidth ?? 100) ?? 100
     )
-  }, [document.getElementById(`label-${name}${id}`), name, label])
+  }, [document.getElementById(`label-${name}${id}`), name, label, id, isFocused, hasValue, windowWidth])
 
   useEffect(() => {
     setInputBoxWidth(
       (document.getElementById(`${name}-${id}`)?.offsetWidth ?? 100) ?? 100
     )
-  }, [document.getElementById(`${name}${id}`), name, label, width])
+  }, [document.getElementById(`${name}${id}`), name, label, width, labelWidth, id, isFocused, hasValue, windowWidth])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value
     setInputValue(newValue)
     onChange?.(e)
   }
-
-  const hasValue = inputValue !== ''
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible)
