@@ -292,7 +292,7 @@ function FloatingInput ({
   const [passwordVisible, setPasswordVisible] = useState(false)
   const [labelWidth, setLabelWidth] = useState<number>(100)
   const [inputBoxWidth, setInputBoxWidth] = useState<number>(100)
-
+  const inputId = `${name}-${id}`
   let placeholderValue: string = label ?? ''
 
   useEffect(() => {
@@ -305,7 +305,7 @@ function FloatingInput ({
     setInputBoxWidth(
       (document.getElementById(`${name}-${id}`)?.offsetWidth ?? 100) ?? 100
     )
-  }, [document.getElementById(`${name}${id}`), name, label])
+  }, [document.getElementById(`${name}${id}`), name, label, width])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value
@@ -333,7 +333,7 @@ function FloatingInput ({
         <IconContainer iconPosition="left">{icon}</IconContainer>
       )}
       <Input
-        id={`${name}-${id}`}
+        id={inputId}
         name={name}
         placeholder={placeholderValue}
         type={type === 'password' && passwordVisible ? 'text' : type}
@@ -377,7 +377,7 @@ function FloatingInput ({
       )}
       {label && (
         <Label
-          htmlFor={name}
+          htmlFor={inputId}
           id={`label-${name}-${id}`}
           labelPosition={labelPosition}
           hasValue={hasValue}
