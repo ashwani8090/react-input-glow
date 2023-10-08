@@ -93,6 +93,8 @@ export const Label = styled.label<{
   labelTextColor?: string
   errorTextColor?: string
   errorText?: string
+  labelWidth: number
+  inputBoxWidth: number
 }>`
   position: absolute;
   font-size: ${({ hasValue, isFocused, isFloating }) =>
@@ -177,6 +179,19 @@ export const Label = styled.label<{
       }
     }
   }};
+
+${({ labelWidth, inputBoxWidth }) => {
+    if (labelWidth > (inputBoxWidth / 2)) {
+      return css`
+              text-overflow: ellipsis;
+              max-width: ${inputBoxWidth / 2}px;
+              overflow: hidden;
+              white-space: nowrap;
+
+        `
+    }
+  }};
+
 
   ${({ className }) =>
     className &&
@@ -276,12 +291,21 @@ function FloatingInput ({
   const [isFocused, setIsFocused] = useState(false)
   const [passwordVisible, setPasswordVisible] = useState(false)
   const [labelWidth, setLabelWidth] = useState<number>(100)
+  const [inputBoxWidth, setInputBoxWidth] = useState<number>(100)
+
   let placeholderValue: string = label ?? ''
+
   useEffect(() => {
     setLabelWidth(
       (document.getElementById(`label-${name}-${id}`)?.offsetWidth ?? 100) ?? 100
     )
   }, [document.getElementById(`label-${name}${id}`), name, label])
+
+  useEffect(() => {
+    setInputBoxWidth(
+      (document.getElementById(`${name}-${id}`)?.offsetWidth ?? 100) ?? 100
+    )
+  }, [document.getElementById(`${name}${id}`), name, label])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value
@@ -309,7 +333,7 @@ function FloatingInput ({
         <IconContainer iconPosition="left">{icon}</IconContainer>
       )}
       <Input
-        id={name}
+        id={`${name}-${id}`}
         name={name}
         placeholder={placeholderValue}
         type={type === 'password' && passwordVisible ? 'text' : type}
@@ -369,6 +393,8 @@ function FloatingInput ({
           labelTextColor={labelTextColor}
           errorText={errorText}
           errorTextColor={errorLabelTextColor ?? errorTextColor}
+          inputBoxWidth={inputBoxWidth}
+          labelWidth={labelWidth}
         >
           {label}
           {required && <Asterisk isFocused={isFocused}>*</Asterisk>}
