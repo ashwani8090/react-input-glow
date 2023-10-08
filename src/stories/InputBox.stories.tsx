@@ -44,7 +44,7 @@ const MyForm = () => {
 } as Meta;
 
 // Define a common template for InputBox stories
-const Template: Story = (args) => <InputBox {...args} />;
+const Template: Story = (args) => <InputBox name="text" {...args} />;
 
 // Define a function to generate the JSX code for any example
 const generateCode = (args) => {
@@ -436,7 +436,7 @@ InputBoxTextColor.parameters = {
 // Example: InputBox with dark background for inline label
 export const FloatingLabelDarkBackground: Story = (args) => (
   <div style={{ backgroundColor: '#3a2f2f', padding: 30 }}>
-    <InputBox {...args} />
+    <InputBox name="text" {...args} />
   </div>
 );
 FloatingLabelDarkBackground.args = {
@@ -444,7 +444,7 @@ FloatingLabelDarkBackground.args = {
   label: 'Username',
   labelPosition: 'inline',
   labelBackground: '#3a2f2f',
-  secondaryColor: '#ffff',
+    labelTextColor: '#ffff',
   primaryColor: '#ffff',
   textColor: '#ffff'
 };
@@ -458,7 +458,7 @@ FloatingLabelDarkBackground.parameters = {
         label: 'Username',
         labelPosition: 'inline',
         labelBackground: '#3a2f2f',
-        secondaryColor: '#ffff',
+          labelTextColor: '#ffff',
         primaryColor: '#ffff',
         textColor: '#ffff'
       })}

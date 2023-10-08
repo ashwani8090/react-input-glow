@@ -90,17 +90,17 @@ export const Label = styled.label<{
   iconPosition?: 'left' | 'right'
   isFloating?: boolean
   primaryColor?: string
-  secondaryColor?: string
+  labelTextColor?: string
   errorTextColor?: string
   errorText?: string
 }>`
   position: absolute;
   font-size: ${({ hasValue, isFocused, isFloating }) =>
     isFloating ? '0.90rem' : hasValue || isFocused ? '0.90rem' : '0.875rem'};
-  color: ${({ isFocused, primaryColor, secondaryColor }) =>
+  color: ${({ isFocused, primaryColor, labelTextColor }) =>
     isFocused
       ? primaryColor ?? 'var(--primary-color)'
-      : secondaryColor ?? 'gray'};
+      : labelTextColor ?? 'gray'};
   background-color: transparent;
   padding: 0 4px;
   transition:
@@ -254,7 +254,7 @@ function FloatingInput ({
   labelBackground = 'white',
   textColor,
   primaryColor = 'black',
-  secondaryColor = 'gray',
+  labelTextColor = 'gray',
   errorText,
   errorTextColor,
   errorLabelTextColor,
@@ -357,7 +357,7 @@ function FloatingInput ({
           iconPosition={iconPosition}
           isFloating={isFloating}
           primaryColor={primaryColor}
-          secondaryColor={secondaryColor}
+          labelTextColor={labelTextColor}
           errorText={errorText}
           errorTextColor={errorLabelTextColor ?? errorTextColor}
         >
