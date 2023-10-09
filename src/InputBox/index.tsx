@@ -10,7 +10,9 @@ import { type FloatingInputProps } from './InputBox.types'
 const InputContainer = styled.div<{ width?: string }>`
   position: relative;
   margin-bottom: 10px;
-  width: ${({ width }) => (width ? `${width}` : '99%')};
+  width: ${({ width }) => (width ? `${width}` : '100%')};
+  display: flex;
+  flex-direction: column;
 `
 
 const Input = styled.input<{
@@ -29,16 +31,17 @@ const Input = styled.input<{
   primaryColor?: string
   errorTextColor?: string
   errorText?: string
+  type?: string
+  showIcon?: boolean
 }>`
   background-color: transparent;
   height: ${({ height }) => height ?? '2.5rem'};
-  width: 100%;
   border: none;
   font-size: 1rem;
   outline: none;
-  padding: 0.5rem 0px;
-  padding-left: ${({ iconPosition }) =>
-    iconPosition === 'left' ? '2.5rem' : '12px'};
+  padding: 0.5rem 0rem;
+  padding-left: ${({ iconPosition }) => iconPosition === 'left' ? '2.5rem' : '12px'};
+  padding-right: 12px;
   border-radius: ${({ borderRadius }) => borderRadius ?? '0.375rem'};
   border: ${({ borderWidth, borderColor }) =>
     `${borderWidth ?? '1px'} solid ${borderColor ?? 'gray'}`};
@@ -60,6 +63,24 @@ const Input = styled.input<{
       border-color: rgb(0 0 0 / 7%);
     `}
 
+  ${({ errorTextColor, errorText }) => {
+    if (errorText) {
+      return css`
+          border-color: ${errorTextColor ?? 'red'};
+          border-width: 0.1rem;
+        `
+      }
+    }
+  };
+
+${({ showIcon, type, iconPosition }) => {
+    if (showIcon && (type === 'password' || iconPosition === 'right')) {
+      return css`
+          padding-right: 33px;
+        `
+      }
+    }
+  };
 
   ${({ className }) =>
     className &&
@@ -67,14 +88,7 @@ const Input = styled.input<{
       ${className}
     `}
 
-    ${({ errorTextColor, errorText }) => {
-    if (errorText) {
-      return css`
-          border-color: ${errorTextColor ?? 'red'};
-          border-width: 0.1rem;
-        `
-    }
-  }};
+ 
 `
 
 export const Label = styled.label<{
@@ -269,7 +283,7 @@ function FloatingInput ({
   borderColor,
   borderWidth,
   iconPosition = 'right',
-  icon = true,
+  icon = false,
   required = false,
   isFloating = true,
   disabled = false,
@@ -284,6 +298,7 @@ function FloatingInput ({
   toggleOffIcon,
   toggleOnIcon,
   legendClassName,
+  showIcon = false,
   ...props
 }: FloatingInputProps) {
   const id = useId()
@@ -339,7 +354,7 @@ function FloatingInput ({
 
   return (
     <InputContainer className={className} width={width}>
-      {icon && iconPosition === 'left' && (
+      {showIcon && iconPosition === 'left' && (
         <IconContainer iconPosition="left">{icon}</IconContainer>
       )}
       <Input
@@ -369,9 +384,10 @@ function FloatingInput ({
         primaryColor={primaryColor}
         errorTextColor={errorTextColor}
         errorText={errorText}
+        showIcon={showIcon}
         {...props}
       />
-      {!!(type === 'password' && icon) && !disabled && (
+      {!!(type === 'password' && showIcon) && !disabled && (
         <IconContainer iconPosition="right" onClick={togglePasswordVisibility} errorText={errorText} >
           {passwordVisible
             ? (
@@ -413,7 +429,7 @@ function FloatingInput ({
       {errorText && (
         <ErrorText errorTextColor={errorTextColor} className={errorTextClassName}>{errorText}</ErrorText>
       )}
-      {icon && iconPosition === 'right' && (
+      {showIcon && iconPosition === 'right' && (
         <IconContainer iconPosition="right">{icon}</IconContainer>
       )}
     </InputContainer>

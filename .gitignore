@@ -1,3 +1,7 @@
 node_modules
 dist
 storybook-static
+# Ignore Firebase deploy files
+firebase.json
+.firebaserc
+.firebase/

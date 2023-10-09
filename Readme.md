@@ -86,6 +86,7 @@ Here's a table of available props for the `FloatingInputProps` interface, arrang
 | name               | string         | The name attribute for the input field.           |
 | placeholder        | string         | The placeholder text for the input field.         |
 | primaryColor       | string         | The primary color of the input field.             |
+| showIcon           | boolean            |  An icon boolean to display within the input.        |
 | required           | boolean        | Whether the input is required.                    |
 | textColor          | string         | The text color of the input field.                |
 | toggleOffIcon      | React.ReactNode | An icon to use when the input is toggled off (e.g., for passwords). |

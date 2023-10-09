@@ -17,6 +17,7 @@ export interface FloatingInputProps
   borderColor?: string
   borderWidth?: string
   iconPosition?: 'left' | 'right'
+  showIcon?: boolean
   icon?: React.ReactNode | any
   required?: boolean
   isFloating?: boolean

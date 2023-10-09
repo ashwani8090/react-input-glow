@@ -80,12 +80,12 @@ InputBoxNonFloatingLabel.parameters = {
 };
 
 // Example: InputBox with inline label
-export const FloatingInline = Template.bind({});
-FloatingInline.args = {
+export const FloatingLabelInline = Template.bind({});
+FloatingLabelInline.args = {
   ...defaultArgs,
   labelPosition: 'inline',
 };
-FloatingInline.parameters = {
+FloatingLabelInline.parameters = {
   docs: {
     source: {
       code: generateCode({ ...defaultArgs, labelPosition: 'inline' }),
@@ -94,12 +94,12 @@ FloatingInline.parameters = {
 };
 
 // Example: InputBox with outside label
-export const FloatingOutside = Template.bind({});
-FloatingOutside.args = {
+export const FloatingLabelOutside = Template.bind({});
+FloatingLabelOutside.args = {
   ...defaultArgs,
   labelPosition: 'outside',
 };
-FloatingOutside.parameters = {
+FloatingLabelOutside.parameters = {
   docs: {
     source: {
       code: generateCode({ ...defaultArgs, labelPosition: 'outside' }),
@@ -108,12 +108,12 @@ FloatingOutside.parameters = {
 };
 
 // Example: InputBox with inside label
-export const FloatingInside = Template.bind({});
-FloatingInside.args = {
+export const FloatingLabelInside = Template.bind({});
+FloatingLabelInside.args = {
   ...defaultArgs,
   labelPosition: 'inside',
 };
-FloatingInside.parameters = {
+FloatingLabelInside.parameters = {
   docs: {
     source: {
       code: generateCode({ ...defaultArgs, labelPosition: 'inside' }),
@@ -127,7 +127,6 @@ InputPassword.args = {
   ...defaultArgs,
   label: 'Password',
   type: 'password',
-  icon: false,
 };
 InputPassword.parameters = {
   docs: {
@@ -136,7 +135,6 @@ InputPassword.parameters = {
         ...defaultArgs,
         label: 'Password',
         type: 'password',
-        icon: false,
       }),
     },
   },
@@ -148,6 +146,7 @@ InputPasswordIcon.args = {
   ...defaultArgs,
   label: 'Password',
   type: 'password',
+  showIcon: true,
 };
 InputPasswordIcon.parameters = {
   docs: {
@@ -156,6 +155,7 @@ InputPasswordIcon.parameters = {
         ...defaultArgs,
         label: 'Password',
         type: 'password',
+        showIcon: true,
       }),
     },
   },
@@ -167,6 +167,7 @@ InputPasswordCustomIcon.args = {
   ...defaultArgs,
   label: 'Password',
   type: 'password',
+  showIcon: true,
   toggleOffIcon: <FontAwesomeIcon icon={faEyeSlash} />,
   toggleOnIcon: <FontAwesomeIcon icon={faEye} />,
 };
@@ -179,6 +180,7 @@ InputPasswordCustomIcon.parameters = {
         type: 'password',
         toggleOffIcon: '<FontAwesomeIcon icon={faEyeSlash} />',
         toggleOnIcon: '<FontAwesomeIcon icon={faEye} />',
+        showIcon: true,
       }),
     },
   },
@@ -226,7 +228,6 @@ FloatingInputBorderRadius.parameters = {
 export const FloatingInputBorderWidth = Template.bind({});
 FloatingInputBorderWidth.args = {
   ...defaultArgs,
-  labelPosition: 'outside',
   borderWidth: '2px',
 };
 FloatingInputBorderWidth.parameters = {
@@ -234,7 +235,6 @@ FloatingInputBorderWidth.parameters = {
     source: {
       code: generateCode({
         ...defaultArgs,
-        labelPosition: 'outside',
         borderWidth: '2px',
       }),
     },
@@ -245,7 +245,6 @@ FloatingInputBorderWidth.parameters = {
 export const InputBoxHeight = Template.bind({});
 InputBoxHeight.args = {
   ...defaultArgs,
-  labelPosition: 'outside',
   height: '30px',
 };
 InputBoxHeight.parameters = {
@@ -253,7 +252,6 @@ InputBoxHeight.parameters = {
     source: {
       code: generateCode({
         ...defaultArgs,
-        labelPosition: 'outside',
         height: '30px',
       }),
     },
@@ -264,7 +262,6 @@ InputBoxHeight.parameters = {
 export const InputBoxWidth = Template.bind({});
 InputBoxWidth.args = {
   ...defaultArgs,
-  labelPosition: 'outside',
   width: '400px',
 };
 InputBoxWidth.parameters = {
@@ -272,7 +269,6 @@ InputBoxWidth.parameters = {
     source: {
       code: generateCode({
         ...defaultArgs,
-        labelPosition: 'outside',
         width: '400px',
       }),
     },
@@ -284,9 +280,8 @@ export const InputBoxRightIcon = Template.bind({});
 InputBoxRightIcon.args = {
   ...defaultArgs,
   label: 'Username',
-  labelPosition: 'outside',
-  width: '300px',
   icon: <FontAwesomeIcon icon={faUser} />,
+  showIcon: true
 };
 InputBoxRightIcon.parameters = {
   docs: {
@@ -294,9 +289,8 @@ InputBoxRightIcon.parameters = {
       code: generateCode({
         ...defaultArgs,
         label: 'Username',
-        labelPosition: 'outside',
-        width: '300px',
         icon: '<FontAwesomeIcon icon={faUser} />',
+        showIcon: true
       }),
     },
   },
@@ -307,10 +301,9 @@ export const InputBoxLeftIcon = Template.bind({});
 InputBoxLeftIcon.args = {
   ...defaultArgs,
   label: 'Username',
-  labelPosition: 'outside',
-  width: '300px',
   icon: <FontAwesomeIcon icon={faLock} color="gray" />,
   iconPosition: 'left',
+  showIcon: true
 };
 InputBoxLeftIcon.parameters = {
   docs: {
@@ -318,60 +311,59 @@ InputBoxLeftIcon.parameters = {
       code: generateCode({
         ...defaultArgs,
         label: 'Username',
-        labelPosition: 'outside',
-        width: '300px',
         icon: '<FontAwesomeIcon icon={faLock} color="gray" />',
         iconPosition: 'left',
+        showIcon: true
       }),
     },
   },
 };
 
 // Example: InputBox with inline label and left icon
-export const InputBoxInlineLeftIcon = Template.bind({});
-InputBoxInlineLeftIcon.args = {
+export const InputBoxLabelInlineLeftIcon = Template.bind({});
+InputBoxLabelInlineLeftIcon.args = {
   ...defaultArgs,
   label: 'Username',
   labelPosition: 'inline',
-  width: '300px',
   icon: <FontAwesomeIcon icon={faLock} color="gray" />,
   iconPosition: 'left',
+  showIcon: true
 };
-InputBoxInlineLeftIcon.parameters = {
+InputBoxLabelInlineLeftIcon.parameters = {
   docs: {
     source: {
       code: generateCode({
         ...defaultArgs,
         label: 'Username',
         labelPosition: 'inline',
-        width: '300px',
         icon: '<FontAwesomeIcon icon={faLock} color="gray" />',
         iconPosition: 'left',
+        showIcon: true
       }),
     },
   },
 };
 
 // Example: InputBox with inside label and left icon
-export const InputBoxInsideLeftIcon = Template.bind({});
-InputBoxInsideLeftIcon.args = {
+export const InputBoxLabelInsideLeftIcon = Template.bind({});
+InputBoxLabelInsideLeftIcon.args = {
   ...defaultArgs,
   label: 'Username',
   labelPosition: 'inside',
-  width: '300px',
   icon: <FontAwesomeIcon icon={faLock} color="gray" />,
   iconPosition: 'left',
+  showIcon: true
 };
-InputBoxInsideLeftIcon.parameters = {
+InputBoxLabelInsideLeftIcon.parameters = {
   docs: {
     source: {
       code: generateCode({
         ...defaultArgs,
         label: 'Username',
         labelPosition: 'inside',
-        width: '300px',
         icon: '<FontAwesomeIcon icon={faLock} color="gray" />',
         iconPosition: 'left',
+        showIcon: true
       }),
     },
   },
@@ -382,11 +374,10 @@ export const InputBoxNotFloatingLeftIcon = Template.bind({});
 InputBoxNotFloatingLeftIcon.args = {
   ...defaultArgs,
   label: 'Username',
-  labelPosition: 'inside',
-  width: '300px',
+  isFloating: false,
   icon: <FontAwesomeIcon icon={faLock} color="gray" />,
   iconPosition: 'left',
-  isFloating: false,
+  showIcon: true
 };
 InputBoxNotFloatingLeftIcon.parameters = {
   docs: {
@@ -394,11 +385,10 @@ InputBoxNotFloatingLeftIcon.parameters = {
       code: generateCode({
         ...defaultArgs,
         label: 'Username',
-        labelPosition: 'inside',
-        width: '300px',
         icon: '<FontAwesomeIcon icon={faLock} color="gray" />',
         iconPosition: 'left',
         isFloating: false,
+        showIcon: true
       }),
     },
   },
@@ -409,11 +399,6 @@ export const InputBoxTextColor = Template.bind({});
 InputBoxTextColor.args = {
   ...defaultArgs,
   label: 'Username',
-  labelPosition: 'inside',
-  width: '300px',
-  icon: <FontAwesomeIcon icon={faLock} color="gray" />,
-  iconPosition: 'left',
-  isFloating: false,
   textColor: '#16e8ef',
 };
 InputBoxTextColor.parameters = {
@@ -422,11 +407,6 @@ InputBoxTextColor.parameters = {
       code: generateCode({
         ...defaultArgs,
         label: 'Username',
-        labelPosition: 'inside',
-        width: '300px',
-        icon: '<FontAwesomeIcon icon={faLock} color="gray" />',
-        iconPosition: 'left',
-        isFloating: false,
         textColor: '#16e8ef',
       }),
     },
@@ -474,7 +454,6 @@ InputBoxPlaceholder.args = {
   ...defaultArgs,
   label: 'Username',
   labelPosition: 'outside',
-  width: '300px',
   isFloating: false,
   placeholder: 'Enter Username name',
 };
@@ -485,7 +464,6 @@ InputBoxPlaceholder.parameters = {
         ...defaultArgs,
         label: 'Username',
         labelPosition: 'outside',
-        width: '300px',
         isFloating: false,
         placeholder: 'Enter Username name',
       }),
@@ -494,15 +472,15 @@ InputBoxPlaceholder.parameters = {
 };
 
 // Example: InputBox with an error outside label
-export const InputBoxOutsideError = Template.bind({});
-InputBoxOutsideError.args = {
+export const InputBoxLabelOutsideError = Template.bind({});
+InputBoxLabelOutsideError.args = {
   ...defaultArgs,
   label: 'Username',
   labelPosition: 'outside',
   isFloating: true,
   errorText: 'Error Text',
 };
-InputBoxOutsideError.parameters = {
+InputBoxLabelOutsideError.parameters = {
   docs: {
     source: {
       code: generateCode({
@@ -517,22 +495,20 @@ InputBoxOutsideError.parameters = {
 };
 
 // Example: InputBox with an error inline label
-export const InputBoxInlineError = Template.bind({});
-InputBoxInlineError.args = {
+export const InputBoxLabelInlineError = Template.bind({});
+InputBoxLabelInlineError.args = {
   ...defaultArgs,
   label: 'Username',
   labelPosition: 'inline',
-  isFloating: true,
   errorText: 'Error Text',
 };
-InputBoxInlineError.parameters = {
+InputBoxLabelInlineError.parameters = {
   docs: {
     source: {
       code: generateCode({
         ...defaultArgs,
         label: 'Username',
         labelPosition: 'inline',
-        isFloating: true,
         errorText: 'Error Text',
       }),
     },
@@ -540,23 +516,21 @@ InputBoxInlineError.parameters = {
 };
 
 // Example: InputBox with an error inside label and password type
-export const InputBoxInsideError = Template.bind({});
-InputBoxInsideError.args = {
+export const InputBoxLabelInsideError = Template.bind({});
+InputBoxLabelInsideError.args = {
   ...defaultArgs,
   label: 'Username',
   labelPosition: 'inside',
-  isFloating: true,
   errorText: 'Error Text',
   type: 'password',
 };
-InputBoxInsideError.parameters = {
+InputBoxLabelInsideError.parameters = {
   docs: {
     source: {
       code: generateCode({
         ...defaultArgs,
         label: 'Username',
         labelPosition: 'inside',
-        isFloating: true,
         errorText: 'Error Text',
         type: 'password',
       }),
@@ -570,7 +544,6 @@ InputBoxErrorLabelColor.args = {
   ...defaultArgs,
   label: 'Username',
   labelPosition: 'outside',
-  isFloating: true,
   errorText: 'Error Text',
   errorLabelTextColor: '#191717',
 };
@@ -581,7 +554,6 @@ InputBoxErrorLabelColor.parameters = {
         ...defaultArgs,
         label: 'Username',
         labelPosition: 'outside',
-        isFloating: true,
         errorText: 'Error Text',
         errorLabelTextColor: '#191717',
       }),
