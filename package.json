@@ -1,6 +1,6 @@
 {
-  "name": "react-input-glow",
-  "version": "2.0.9",
+  "name": "react-input-customizer",
+  "version": "1.0.0",
   "description": "Create Stunning Floating Input Boxes in React for Enhanced User Interfaces",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -46,7 +46,7 @@
     "input component"
   ],
   "bugs": {
-    "url": "https://github.com/ashwani8090/react-input-glow/issues"
+    "url": "https://github.com/ashwani8090/react-input-customizer/issues"
   },
   "devDependencies": {
     "@babel/core": "^7.23.0",

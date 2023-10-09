@@ -25,7 +25,7 @@ export default {
       source: {
         code: `
 import React from 'react';
-import InputBox from 'react-input-glow';
+import InputBox from 'react-input-customizer';
 
 const MyForm = () => {
   return (

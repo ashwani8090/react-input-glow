@@ -7,13 +7,13 @@ The React Input Glow Component provides a flexible and customizable input field 
 You can install the React Glow Input Component using npm or yarn:
 
 ```sh
-npm install react-input-glow
+npm install react-input-customizer
 ```
 
 or
 
 ```sh
-yarn add react-input-glow
+yarn add react-input-customizer
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ To use the React Input Glow Component, you should import the `FloatingInputProps
 
 ```jsx
 import React from 'react';
-import InputBox from 'react-input-glow';
+import InputBox from 'react-input-customizer';
 
 const MyForm = () => {
   const handleChange = (value) => {
