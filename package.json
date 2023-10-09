@@ -1,7 +1,7 @@
 {
   "name": "react-input-glow",
-  "version": "2.0.8",
-  "description": "reusable input box ",
+  "version": "2.0.9",
+  "description": "Create Stunning Floating Input Boxes in React for Enhanced User Interfaces",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/types/index.d.ts",
@@ -22,8 +22,28 @@
   "keywords": [
     "react",
     "react-input",
+    "input",
+    "textbox",
+    "glow",
+    "highlight",
+    "animation",
+    "interactive",
+    "styled-components",
+    "styled",
+    "component",
+    "form",
+    "user-interface",
+    "UI",
+    "enhancement",
+    "design",
+    "text input",
+    "effect",
     "floating",
-    "styled component"
+    "visual",
+    "customization",
+    "input field",
+    "input styling",
+    "input component"
   ],
   "bugs": {
     "url": "https://github.com/ashwani8090/react-input-glow/issues"
