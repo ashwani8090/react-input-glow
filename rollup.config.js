@@ -8,7 +8,6 @@ import postcss from 'rollup-plugin-postcss'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const packageJson = require('./package.json')
-const isProduction = process.env.NODE_ENV === 'production'
 
 export default [
   {
@@ -17,12 +16,12 @@ export default [
       {
         file: packageJson.main,
         format: 'cjs',
-        sourcemap: !isProduction
+        sourcemap: false
       },
       {
         file: packageJson.module,
         format: 'esm',
-        sourcemap: !isProduction
+        sourcemap: false
       }
     ],
     plugins: [
@@ -35,7 +34,7 @@ export default [
         extract: true, // Extract CSS to a separate file (optional)
         minimize: true // Minimize CSS (optional)
       }),
-      typescript({ sourceMap: !isProduction, inlineSources: true })
+      typescript({ sourceMap: false, inlineSources: true })
     ],
     external: ['react', 'react-dom', 'styled-components']
   },
