@@ -1,6 +1,6 @@
 {
   "name": "react-input-customizer",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Create Stunning Floating Input Boxes in React for Enhanced User Interfaces",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -12,7 +12,7 @@
     "build-storybook": "storybook build",
     "prod:storybook": "serve ./storybook-static/",
     "deploy-storybook": "build-storybook && firebase deploy",
-    "clean-story":"yarn cache clean && rm -rf yarn.lock && yarn && yarn storybook"
+    "clean-story": "yarn cache clean && rm -rf yarn.lock && yarn && yarn storybook"
   },
   "author": "ashwani",
   "license": "ISC",
