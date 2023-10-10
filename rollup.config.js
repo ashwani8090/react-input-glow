@@ -9,19 +9,17 @@ import postcss from 'rollup-plugin-postcss'
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const packageJson = require('./package.json')
 
-export default [
+const rollupConfig = [
   {
     input: 'src/index.ts',
     output: [
       {
         file: packageJson.main,
-        format: 'cjs',
-        sourcemap: true
+        format: 'cjs'
       },
       {
         file: packageJson.module,
-        format: 'esm',
-        sourcemap: true
+        format: 'esm'
       }
     ],
     plugins: [
@@ -43,3 +41,5 @@ export default [
     plugins: [dts.default()]
   }
 ]
+
+export default rollupConfig
