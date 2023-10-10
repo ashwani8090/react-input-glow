@@ -123,13 +123,15 @@ export const Label = styled.label<{
   top 0.2s,
   font-size 0.2s,
   left 0.2s;
+  transform: translateY(-50%);
+  top: 50%;
 
   ${({ hasValue, isFocused, labelPosition, isFloating, iconPosition }) => {
     const isNotFloating = !isFloating
 
     if (isNotFloating) {
       return css`
-          top: -20px;
+          top: -10px;
           left: 0px;
         `
     }
@@ -137,23 +139,23 @@ export const Label = styled.label<{
     if (hasValue || isFocused) {
       if (labelPosition === 'inline') {
         return css`
-          top: -8px;
+          top: 0px;
           left: ${iconPosition === 'left' ? '13px' : '12px'};
         `
       } else if (labelPosition === 'inside') {
         return css`
-          top: 3px;
+          top: 10px;
           left: ${iconPosition === 'left' ? '24px' : '8px'};
         `
       } else {
         return css`
-          top: -20px;
+          top: -10px;
           left: 0px;
         `
       }
     } else {
       return css`
-        top: 40%;
+        top: 50%;
         left: ${iconPosition === 'left' ? '30px' : '12px'};
       `
     }
@@ -167,23 +169,23 @@ export const Label = styled.label<{
           if (labelPosition === 'inline') {
             return css`
              color: ${errorTextColor ?? 'red'};
-             top: -8px;
+             top: 0px;
         `
           } else if (labelPosition === 'inside') {
             return css`
-         color: ${errorTextColor ?? 'red'};
-             top: 3px;
+            color: ${errorTextColor ?? 'red'};
+             top: 10px;
         `
           } else {
             return css`
              color: ${errorTextColor ?? 'red'};
-             top: -20px;
+             top: -10px;
         `
           }
         } else {
           return css`
          color: ${errorTextColor ?? 'red'};
-        top: 25%;
+        top: 40%;
         `
         }
       } else {
