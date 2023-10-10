@@ -258,7 +258,6 @@ const Legend = styled.div<{
 const ErrorText = styled.div<{ errorTextColor?: string }>`
   color: ${({ errorTextColor }) => errorTextColor ?? 'red'};
   font-size: 0.75rem;
-  margin-top: 4px;
   display: flex;
 
 
