@@ -12,7 +12,8 @@
     "build-storybook": "storybook build",
     "prod:storybook": "serve ./storybook-static/",
     "deploy-storybook": "build-storybook && firebase deploy",
-    "clean-story": "yarn cache clean && rm -rf yarn.lock && yarn && yarn storybook"
+    "clean-story": "yarn cache clean && rm -rf yarn.lock && yarn && yarn storybook",
+    "npm-deploy": "npm run build && npm publish --access public"
   },
   "author": "ashwani",
   "license": "ISC",
